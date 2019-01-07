@@ -28,14 +28,13 @@ public class PersonValidator implements Validator {
     }
 
     private void checkEmail(Person person, Errors errors) {
-        if (person.getEmail() != null) {
-            errors.rejectValue("email", "required");
-        }
-        assert person.getEmail() != null;
+
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(person.getEmail());
 
-        if (!matcher.find()) {
-            errors.rejectValue("email", "wrong email pattern");
+        if (person.getEmail().isEmpty()) {
+            errors.rejectValue("email", "required");
+        }else if (!matcher.find()) {
+            errors.rejectValue("email", "pattern");
         }
     }
 
@@ -43,7 +42,7 @@ public class PersonValidator implements Validator {
         String pesel = person.getPesel();
 
         if (pesel.length() != 8) {
-            errors.rejectValue("pesel", "pesel should be 8 digits long");
+            errors.rejectValue("pesel", "pesel_digits");
         }
     }
 }
