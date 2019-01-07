@@ -1,11 +1,27 @@
 package com.matmazur.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Person {
 
+    @NotNull
+    @Size(min = 2, max = 20)
     private String name;
+    @NotNull
+    @Size(min = 2, max = 20)
     private String surname;
+    @Digits(integer = 4,fraction = 0)
     private int idNumber;
+    @NotNull
+    @Size(min = 8, max = 8)
     private String pesel;
+    @NotNull
+    @Email
     private String email;
 
 
