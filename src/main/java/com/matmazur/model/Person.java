@@ -1,5 +1,6 @@
 package com.matmazur.model;
 
+import com.matmazur.RealEmail;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
@@ -21,7 +22,7 @@ public class Person {
     @Size(min = 8, max = 8)
     private String pesel;
     @NotNull
-    @Email
+    @RealEmail
     private String email;
 
 
