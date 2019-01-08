@@ -8,7 +8,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.Validator;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,8 +31,8 @@ public class PersonValidationService {
             people.add(person);
         } else {
             System.err.printf("There are errors(%d):\n", errors.getErrorCount());
-            for(ObjectError err: errors.getAllErrors()) {
-                System.err.println(err.getDefaultMessage());
+            for (ObjectError err : errors.getAllErrors()) {
+                System.err.println(err + " -- " + err.getDefaultMessage());
             }
         }
     }
